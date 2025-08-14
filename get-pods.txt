@@ -1,0 +1,3 @@
+NAME                               READY   STATUS    RESTARTS   AGE
+first-deployment-bc9fd4c9b-ghq8n   1/1     Running   0          5m17s
+first-deployment-bc9fd4c9b-wlv7j   1/1     Running   0          5m4s

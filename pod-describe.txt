@@ -1,0 +1,57 @@
+Name:             first-deployment-bc9fd4c9b-ghq8n
+Namespace:        nithish
+Priority:         0
+Service Account:  default
+Node:             aks-system-51783313-vmss000000/10.224.0.4
+Start Time:       Thu, 14 Aug 2025 16:43:49 +0000
+Labels:           app=my-profile
+                  pod-template-hash=bc9fd4c9b
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/first-deployment-bc9fd4c9b
+Containers:
+  my-profile-container:
+    Container ID:   containerd://366abf406b3387dbf720d96068277eaf738fa7078bd4426b7f40ead14b356f2d
+    Image:          nithishacrm3wx2.azurecr.io/my-profile:latest
+    Image ID:       nithishacrm3wx2.azurecr.io/my-profile@sha256:90aa7e7fed3c15e7a6fef537e6fe7465bec57e186543dd526735ef079af696f6
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 14 Aug 2025 16:43:50 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:80/ delay=15s timeout=1s period=20s #success=1 #failure=3
+    Readiness:      http-get http://:80/ delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-89jl6 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-89jl6:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 CriticalAddonsOnly:NoSchedule op=Exists
+                             node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  2m56s  default-scheduler  Successfully assigned nithish/first-deployment-bc9fd4c9b-ghq8n to aks-system-51783313-vmss000000
+  Normal  Pulling    2m55s  kubelet            Pulling image "nithishacrm3wx2.azurecr.io/my-profile:latest"
+  Normal  Pulled     2m55s  kubelet            Successfully pulled image "nithishacrm3wx2.azurecr.io/my-profile:latest" in 234ms (234ms including waiting). Image size: 25254971 bytes.
+  Normal  Created    2m55s  kubelet            Created container: my-profile-container
+  Normal  Started    2m55s  kubelet            Started container my-profile-container
